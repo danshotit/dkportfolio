@@ -1,0 +1,194 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-black text-white font-masculine;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tight text-white;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  .italic-accent {
+    @apply italic text-brand-orange font-medium;
+  }
+
+  .section {
+    @apply py-24 px-6;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-white/70 max-w-2xl;
+  }
+  
+  /* African-inspired design elements */
+  .african-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .african-border {
+    @apply border-2 border-brand-orange/30 rounded-xl p-6 relative overflow-hidden;
+  }
+  
+  .african-border::before {
+    content: '';
+    @apply absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-brand-orange/40 rounded-tr-xl;
+  }
+  
+  .african-border::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-brand-orange/40 rounded-bl-xl;
+  }
+}
+
+@layer utilities {
+  .text-gradient-masculine {
+    @apply bg-gradient-to-r from-white to-brand-orange bg-clip-text text-transparent;
+  }
+
+  .animate-delay-50 {
+    animation-delay: 50ms;
+  }
+  
+  .animate-delay-150 {
+    animation-delay: 150ms;
+  }
+  
+  .animate-delay-250 {
+    animation-delay: 250ms;
+  }
+  
+  .animate-delay-350 {
+    animation-delay: 350ms;
+  }
+  
+  .animate-delay-450 {
+    animation-delay: 450ms;
+  }
+
+  .shadow-card {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Binary code animation */
+  .animate-marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Tech worker animation */
+  .animate-working {
+    animation: working 3s ease-in-out infinite;
+  }
+  
+  @keyframes working {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* 3D effect enhancements */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+/* Create subtle moving binary code particles in the background */
+.binary-particle {
+  position: fixed;
+  color: rgba(249, 115, 22, 0.05);
+  font-family: monospace;
+  font-size: 12px;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+  animation: float 30s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(var(--x-direction));
+  }
+}
+
+/* Animate keyboard workers throughout the page */
+.floating-keyboard {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: -5;
+  filter: grayscale(0.5) brightness(0.8);
+  animation: pulse 5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+/* Gradient overlay that fades different sections */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Canvas styles for Three.js */
+canvas {
+  display: block;
+  pointer-events: none; /* Allows clicks to pass through to elements below */
+}
+
+/* Add glowing highlight effect for brand elements */
+.glow-highlight {
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.3), 0 0 20px rgba(249, 115, 22, 0.2);
+}
